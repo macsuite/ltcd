@@ -487,7 +487,7 @@ func TestListeners(t *testing.T) {
 	// notify a channel when they receive mock connections.
 	receivedConns := make(chan net.Conn)
 	listener1 := newMockListener("127.0.0.1:8333")
-	listener2 := newMockListener("127.0.0.1:9333")
+	listener2 := newMockListener("127.0.0.1:40333")
 	listeners := []net.Listener{listener1, listener2}
 	cmgr, err := New(&Config{
 		Listeners: listeners,

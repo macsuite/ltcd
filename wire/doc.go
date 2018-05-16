@@ -77,7 +77,7 @@ latest protocol version this package supports and is typically the value to use
 for all outbound connections before a potentially lower protocol version is
 negotiated.
 
-Litecoin Network
+Machinecoin Network
 
 The bitcoin network is a magic number which is used to identify the start of a
 message and which bitcoin network the message applies to.  This package provides

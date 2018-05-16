@@ -12,10 +12,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ltcsuite/ltcd/btcjson"
+	"github.com/macsuite/macd/btcjson"
 )
 
-// TestBtcdExtCmds tests all of the ltcd extended commands marshal and unmarshal
+// TestBtcdExtCmds tests all of the macd extended commands marshal and unmarshal
 // into valid results include handling of optional fields being omitted in the
 // marshalled command, while optional fields with defaults have the default
 // assigned on unmarshalled commands.

@@ -22,8 +22,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/macsuite/macd/chaincfg/chainhash"
+	"github.com/macsuite/macd/wire"
 )
 
 // AddrManager provides a concurrency safe address manager for caching potential

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/macsuite/macd/chaincfg/chainhash"
+	"github.com/macsuite/macd/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -22,24 +22,24 @@ var (
 	// the overhead of creating it multiple times.
 	bigOne = big.NewInt(1)
 
-	// mainPowLimit is the highest proof of work value a Litecoin block can
+	// mainPowLimit is the highest proof of work value a Machinecoin block can
 	// have for the main network.
 	mainPowLimit, _ = new(big.Int).SetString("0x0fffff000000000000000000000000000000000000000000000000000000", 0)
 
-	// regressionPowLimit is the highest proof of work value a Litecoin block
+	// regressionPowLimit is the highest proof of work value a Machinecoin block
 	// can have for the regression test network.  It is the value 2^255 - 1.
 	regressionPowLimit = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 
-	// testNet3PowLimit is the highest proof of work value a Litecoin block
+	// testNet3PowLimit is the highest proof of work value a Machinecoin block
 	// can have for the test network (version 3).  It is the value
 	// 2^224 - 1.
 	testNet3PowLimit = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 224), bigOne)
 
-	// testNet4PowLimit is the highest proof of work value a Litecoin block
+	// testNet4PowLimit is the highest proof of work value a Machinecoin block
 	// can have for the test network (version 4).
 	testNet4PowLimit, _ = new(big.Int).SetString("0x0fffff000000000000000000000000000000000000000000000000000000", 0)
 
-	// simNetPowLimit is the highest proof of work value a Litecoin block
+	// simNetPowLimit is the highest proof of work value a Machinecoin block
 	// can have for the simulation test network.  It is the value 2^255 - 1.
 	simNetPowLimit = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 )
@@ -107,8 +107,8 @@ const (
 	DefinedDeployments
 )
 
-// Params defines a Litecoin network by its parameters.  These parameters may be
-// used by Litecoin applications to differentiate networks as well as addresses
+// Params defines a Machinecoin network by its parameters.  These parameters may be
+// used by Machinecoin applications to differentiate networks as well as addresses
 // and keys for one network from those intended for use on another network.
 type Params struct {
 	// Name defines a human-readable identifier for the network.
@@ -225,17 +225,15 @@ type Params struct {
 	HDCoinType uint32
 }
 
-// MainNetParams defines the network parameters for the main Litecoin network.
+// MainNetParams defines the network parameters for the main Machinecoin network.
 var MainNetParams = Params{
 	Name:        "mainnet",
 	Net:         wire.MainNet,
-	DefaultPort: "9333",
+	DefaultPort: "40333",
 	DNSSeeds: []DNSSeed{
-		{"seed-a.litecoin.loshan.co.uk", true},
-		{"dnsseed.thrasher.io", true},
-		{"dnsseed.litecointools.com", false},
-		{"dnsseed.litecoinpool.org", false},
-		{"dnsseed.koin-project.com", false},
+		{"dnsseed1.machinecoin.io", true},
+		{"dnsseed2.machinecoin.io", true},
+		{"dnsseed3.machinecoin.io", false},
 	},
 
 	// Chain parameters
@@ -243,44 +241,32 @@ var MainNetParams = Params{
 	GenesisHash:              &genesisHash,
 	PowLimit:                 mainPowLimit,
 	PowLimitBits:             504365055,
-	BIP0034Height:            710000,
-	BIP0065Height:            918684,
-	BIP0066Height:            811879,
+	BIP0034Height:            0,
+	BIP0065Height:            416969,
+	BIP0066Height:            415969,
 	CoinbaseMaturity:         100,
-	SubsidyReductionInterval: 840000,
+	SubsidyReductionInterval: 350000,
 	TargetTimespan:           (time.Hour * 24 * 3) + (time.Hour * 12), // 3.5 days
 	TargetTimePerBlock:       (time.Minute * 2) + (time.Second * 30),  // 2.5 minutes
-	RetargetAdjustmentFactor: 4,                                       // 25% less, 400% more
+	RetargetAdjustmentFactor: 1,                                       // 25% less, 400% more
 	ReduceMinDifficulty:      false,
 	MinDiffReductionTime:     0,
 	GenerateSupported:        false,
 
 	// Checkpoints ordered from oldest to newest.
 	Checkpoints: []Checkpoint{
-		{1500, newHashFromStr("841a2965955dd288cfa707a755d05a54e45f8bd476835ec9af4402a2b59a2967")},
-		{4032, newHashFromStr("9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846")},
-		{8064, newHashFromStr("eb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70")},
-		{16128, newHashFromStr("602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d")},
-		{23420, newHashFromStr("d80fdf9ca81afd0bd2b2a90ac3a9fe547da58f2530ec874e978fce0b5101b507")},
-		{50000, newHashFromStr("69dc37eb029b68f075a5012dcc0419c127672adb4f3a32882b2b3e71d07a20a6")},
-		{80000, newHashFromStr("4fcb7c02f676a300503f49c764a89955a8f920b46a8cbecb4867182ecdb2e90a")},
-		{120000, newHashFromStr("bd9d26924f05f6daa7f0155f32828ec89e8e29cee9e7121b026a7a3552ac6131")},
-		{161500, newHashFromStr("dbe89880474f4bb4f75c227c77ba1cdc024991123b28b8418dbbf7798471ff43")},
-		{179620, newHashFromStr("2ad9c65c990ac00426d18e446e0fd7be2ffa69e9a7dcb28358a50b2b78b9f709")},
-		{240000, newHashFromStr("7140d1c4b4c2157ca217ee7636f24c9c73db39c4590c4e6eab2e3ea1555088aa")},
-		{383640, newHashFromStr("2b6809f094a9215bafc65eb3f110a35127a34be94b7d0590a096c3f126c6f364")},
-		{409004, newHashFromStr("487518d663d9f1fa08611d9395ad74d982b667fbdc0e77e9cf39b4f1355908a3")},
-		{456000, newHashFromStr("bf34f71cc6366cd487930d06be22f897e34ca6a40501ac7d401be32456372004")},
-		{638902, newHashFromStr("15238656e8ec63d28de29a8c75fcf3a5819afc953dcd9cc45cecc53baec74f38")},
-		{721000, newHashFromStr("198a7b4de1df9478e2463bd99d75b714eab235a2e63e741641dc8a759a9840e5")},
+		{ 23021, newHashFromStr("0268f4e816aac0874c911c83e263353289854c94a21cf97675652419893e7d8f")},
+		{ 53600, newHashFromStr("327ec569aa2439c16542ed9402884f5ce691d08f49168d672f19f817ace7a06b")},
+		{112715, newHashFromStr("4fba0d1f891a35a7e0b7370d13b777e75fd2826423ef777ccca2f63d6acc70c5")},
+		{130938, newHashFromStr("3fc5ccce46b45775ea3cb9f0d10169227bbd019518ebb90e5d6b8a770bf85d1d")},
 	},
 
 	// Consensus rule change deployments.
 	//
 	// The miner confirmation window is defined as:
 	//   target proof of work timespan / target proof of work spacing
-	RuleChangeActivationThreshold: 6048, // 75% of MinerConfirmationWindow
-	MinerConfirmationWindow:       8064, //
+	RuleChangeActivationThreshold: 1916, // 75% of MinerConfirmationWindow
+	MinerConfirmationWindow:       2016, //
 	Deployments: [DefinedDeployments]ConsensusDeployment{
 		DeploymentTestDummy: {
 			BitNumber:  28,
@@ -289,13 +275,13 @@ var MainNetParams = Params{
 		},
 		DeploymentCSV: {
 			BitNumber:  0,
-			StartTime:  1485561600, // January 28, 2017 UTC
-			ExpireTime: 1517356801, // January 31st, 2018 UTC
+			StartTime:  1462060800, // January 28, 2017 UTC
+			ExpireTime: 1493596800, // January 31st, 2018 UTC
 		},
 		DeploymentSegwit: {
 			BitNumber:  1,
-			StartTime:  1485561600, // January 28, 2017 UTC
-			ExpireTime: 1517356801, // January 31st, 2018 UTC.
+			StartTime:  1518811200, // January 28, 2017 UTC
+			ExpireTime: 1550347200, // January 31st, 2018 UTC.
 		},
 	},
 
@@ -304,12 +290,12 @@ var MainNetParams = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "ltc", // always ltc for main net
+	Bech32HRPSegwit: "mc", // always mac for main net
 
 	// Address encoding magics
-	PubKeyHashAddrID:        0x30, // starts with L
-	ScriptHashAddrID:        0x50, // starts with M
-	PrivateKeyID:            0xB0, // starts with 6 (uncompressed) or T (compressed)
+	PubKeyHashAddrID:        0x32, // starts with M
+	ScriptHashAddrID:        0x05, // starts with 3
+	PrivateKeyID:            0xB2, // starts with 2 (uncompressed) or T (compressed)
 	WitnessPubKeyHashAddrID: 0x06, // starts with p2
 	WitnessScriptHashAddrID: 0x0A, // starts with 7Xh
 
@@ -319,11 +305,11 @@ var MainNetParams = Params{
 
 	// BIP44 coin type used in the hierarchical deterministic path for
 	// address generation.
-	HDCoinType: 2,
+	HDCoinType: 3,
 }
 
 // RegressionNetParams defines the network parameters for the regression test
-// Litecoin network.  Not to be confused with the test Litecoin network (version
+// Machinecoin network.  Not to be confused with the test Machinecoin network (version
 // 3), this network is sometimes simply called "testnet".
 var RegressionNetParams = Params{
 	Name:        "regtest",
@@ -380,7 +366,7 @@ var RegressionNetParams = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "tltc", // always tltc for test net
+	Bech32HRPSegwit: "tmac", // always tmac for test net
 
 	// Address encoding magics
 	PubKeyHashAddrID: 0x6f, // starts with m or n
@@ -396,7 +382,7 @@ var RegressionNetParams = Params{
 	HDCoinType: 1,
 }
 
-// TestNet4Params defines the network parameters for the test Litecoin network
+// TestNet4Params defines the network parameters for the test Machinecoin network
 // (version 4).  Not to be confused with the regression test network, this
 // network is sometimes simply called "testnet".
 var TestNet4Params = Params{
@@ -404,8 +390,8 @@ var TestNet4Params = Params{
 	Net:         wire.TestNet4,
 	DefaultPort: "19335",
 	DNSSeeds: []DNSSeed{
-		{"testnet-seed.litecointools.com", false},
-		{"seed-b.litecoin.loshan.co.uk", true},
+		{"testnet-seed.machinecointools.com", false},
+		{"seed-b.machinecoin.loshan.co.uk", true},
 		{"dnsseed-testnet.thrasher.io", true},
 	},
 
@@ -464,7 +450,7 @@ var TestNet4Params = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "tltc", // always tb for test net
+	Bech32HRPSegwit: "tmac", // always tb for test net
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x6f, // starts with m or n
@@ -482,7 +468,7 @@ var TestNet4Params = Params{
 	HDCoinType: 1,
 }
 
-// SimNetParams defines the network parameters for the simulation test Litecoin
+// SimNetParams defines the network parameters for the simulation test Machinecoin
 // network.  This network is similar to the normal test network except it is
 // intended for private use within a group of individuals doing simulation
 // testing.  The functionality is intended to differ in that the only nodes
@@ -544,7 +530,7 @@ var SimNetParams = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "sltc", // always lsb for sim net
+	Bech32HRPSegwit: "smac", // always lsb for sim net
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x3f, // starts with S
@@ -563,10 +549,10 @@ var SimNetParams = Params{
 }
 
 var (
-	// ErrDuplicateNet describes an error where the parameters for a Litecoin
+	// ErrDuplicateNet describes an error where the parameters for a Machinecoin
 	// network could not be set due to the network already being a standard
 	// network or previously-registered into this package.
-	ErrDuplicateNet = errors.New("duplicate Litecoin network")
+	ErrDuplicateNet = errors.New("duplicate Machinecoin network")
 
 	// ErrUnknownHDKeyID describes an error where the provided id which
 	// is intended to identify the network for a hierarchical deterministic
@@ -587,7 +573,7 @@ func (d DNSSeed) String() string {
 	return d.Host
 }
 
-// Register registers the network parameters for a Litecoin network.  This may
+// Register registers the network parameters for a Machinecoin network.  This may
 // error with ErrDuplicateNet if the network is already registered (either
 // due to a previous Register call, or the network being one of the default
 // networks).

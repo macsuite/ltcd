@@ -10,28 +10,28 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/database"
-	_ "github.com/ltcsuite/ltcd/database/ffldb"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/macsuite/macd/chaincfg"
+	"github.com/macsuite/macd/database"
+	_ "github.com/macsuite/macd/database/ffldb"
+	"github.com/macsuite/macd/wire"
+	"github.com/macsuite/macutil"
 )
 
 var (
-	ltcdHomeDir     = ltcutil.AppDataDir("ltcd", false)
+	macdHomeDir     = macutil.AppDataDir("macd", false)
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 
 	// Default global config.
 	cfg = &config{
-		DataDir: filepath.Join(ltcdHomeDir, "data"),
+		DataDir: filepath.Join(macdHomeDir, "data"),
 		DbType:  "ffldb",
 	}
 )
 
 // config defines the global configuration options.
 type config struct {
-	DataDir        string `short:"b" long:"datadir" description:"Location of the ltcd data directory"`
+	DataDir        string `short:"b" long:"datadir" description:"Location of the macd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
 	TestNet4       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
@@ -60,7 +60,7 @@ func validDbType(dbType string) bool {
 }
 
 // netName returns the name used when referring to a bitcoin network.  At the
-// time of writing, ltcd currently places blocks for testnet version 3 in the
+// time of writing, macd currently places blocks for testnet version 3 in the
 // data and log directory "testnet", which does not match the Name field of the
 // chaincfg parameters.  This function can be used to override this directory name
 // as "testnet" when the passed active network matches wire.TestNet4.

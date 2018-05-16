@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/macsuite/macd/chaincfg"
+	"github.com/macsuite/macd/wire"
 )
 
 const (

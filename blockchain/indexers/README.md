@@ -1,7 +1,7 @@
 indexers
 ========
 
-[![Build Status](https://travis-ci.org/ltcsuite/ltcd.png?branch=master)](https://travis-ci.org/ltcsuite/ltcd)
+[![Build Status](https://travis-ci.org/macsuite/macd.png?branch=master)](https://travis-ci.org/macsuite/macd)
 
 Package indexers implements optional block chain indexes.
 
@@ -21,7 +21,7 @@ via an RPC interface.
 ## Installation
 
 ```bash
-$ go get -u github.com/ltcsuite/ltcd/blockchain/indexers
+$ go get -u github.com/macsuite/macd/blockchain/indexers
 ```
 
 ## License

@@ -1,8 +1,8 @@
 treap
 =====
 
-[![Build Status](https://travis-ci.org/ltcsuite/ltcd.png?branch=master)]
-(https://travis-ci.org/ltcsuite/ltcd)
+[![Build Status](https://travis-ci.org/macsuite/macd.png?branch=master)]
+(https://travis-ci.org/macsuite/macd)
 
 Package treap implements a treap data structure that is used to hold ordered
 key/value pairs using a combination of binary search tree and heap semantics.

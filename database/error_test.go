@@ -8,7 +8,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ltcsuite/ltcd/database"
+	"github.com/macsuite/macd/database"
 )
 
 // TestErrorCodeStringer tests the stringized output for the ErrorCode type.

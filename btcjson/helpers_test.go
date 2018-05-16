@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ltcsuite/ltcd/btcjson"
+	"github.com/macsuite/macd/btcjson"
 )
 
 // TestHelpers tests the various helper functions which create pointers to

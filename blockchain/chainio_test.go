@@ -11,9 +11,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/database"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/macsuite/macd/chaincfg/chainhash"
+	"github.com/macsuite/macd/database"
+	"github.com/macsuite/macd/wire"
 )
 
 // TestErrNotInMainChain ensures the functions related to errNotInMainChain work

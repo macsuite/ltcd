@@ -1,13 +1,13 @@
 rpcclient
 =========
 
-[![Build Status](http://img.shields.io/travis/ltcsuite/ltcd.svg)](https://travis-ci.org/ltcsuite/ltcd)
+[![Build Status](http://img.shields.io/travis/macsuite/macd.svg)](https://travis-ci.org/macsuite/macd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/ltcsuite/ltcd/rpcclient)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/macsuite/macd/rpcclient)
 
 rpcclient implements a Websocket-enabled Bitcoin JSON-RPC client package written
 in [Go](http://golang.org/).  It provides a robust and easy to use client for
-interfacing with a Bitcoin RPC server that uses a ltcd/bitcoin core compatible
+interfacing with a Bitcoin RPC server that uses a macd/bitcoin core compatible
 Bitcoin JSON-RPC API.
 
 ## Status
@@ -18,24 +18,24 @@ implement and the API is not stable yet.
 
 ## Documentation
 
-* [API Reference](http://godoc.org/github.com/ltcsuite/ltcd/rpcclient)
-* [ltcd Websockets Example](https://github.com/ltcsuite/ltcd/rpcclient/blob/master/examples/ltcdwebsockets)  
-  Connects to a ltcd RPC server using TLS-secured websockets, registers for
+* [API Reference](http://godoc.org/github.com/macsuite/macd/rpcclient)
+* [macd Websockets Example](https://github.com/macsuite/macd/rpcclient/blob/master/examples/macdwebsockets)  
+  Connects to a macd RPC server using TLS-secured websockets, registers for
   block connected and block disconnected notifications, and gets the current
   block count
-* [btcwallet Websockets Example](https://github.com/ltcsuite/ltcd/rpcclient/blob/master/examples/btcwalletwebsockets)  
+* [btcwallet Websockets Example](https://github.com/macsuite/macd/rpcclient/blob/master/examples/btcwalletwebsockets)  
   Connects to a btcwallet RPC server using TLS-secured websockets, registers for
   notifications about changes to account balances, and gets a list of unspent
   transaction outputs (utxos) the wallet can sign
-* [Bitcoin Core HTTP POST Example](https://github.com/ltcsuite/ltcd/rpcclient/blob/master/examples/bitcoincorehttp)  
+* [Bitcoin Core HTTP POST Example](https://github.com/macsuite/macd/rpcclient/blob/master/examples/bitcoincorehttp)  
   Connects to a bitcoin core RPC server using HTTP POST mode with TLS disabled
   and gets the current block count
 
 ## Major Features
 
-* Supports Websockets (ltcd/btcwallet) and HTTP POST mode (bitcoin core)
-* Provides callback and registration functions for ltcd/btcwallet notifications
-* Supports ltcd extensions
+* Supports Websockets (macd/btcwallet) and HTTP POST mode (bitcoin core)
+* Provides callback and registration functions for macd/btcwallet notifications
+* Supports macd extensions
 * Translates to and from higher-level and easier to use Go types
 * Offers a synchronous (blocking) and asynchronous API
 * When running in Websockets mode (the default):
@@ -47,7 +47,7 @@ implement and the API is not stable yet.
 ## Installation
 
 ```bash
-$ go get -u github.com/ltcsuite/ltcd/rpcclient
+$ go get -u github.com/macsuite/macd/rpcclient
 ```
 
 ## License

@@ -7,7 +7,7 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/ltcsuite/ltcd/chaincfg"
+	"github.com/macsuite/macd/chaincfg"
 )
 
 // TestNotifications ensures that notification callbacks are fired on events.

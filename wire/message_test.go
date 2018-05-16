@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
+	"github.com/macsuite/macd/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
 )
 
@@ -40,10 +40,10 @@ func TestMessage(t *testing.T) {
 	// Create the various types of messages to test.
 
 	// MsgVersion.
-	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 9333}
+	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 40333}
 	you := NewNetAddress(addrYou, SFNodeNetwork)
 	you.Timestamp = time.Time{} // Version message has zero value timestamp.
-	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 9333}
+	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 40333}
 	me := NewNetAddress(addrMe, SFNodeNetwork)
 	me.Timestamp = time.Time{} // Version message has zero value timestamp.
 	msgVersion := NewMsgVersion(me, you, 123123, 0)

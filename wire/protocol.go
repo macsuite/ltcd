@@ -13,7 +13,7 @@ import (
 // XXX pedro: we will probably need to bump this.
 const (
 	// ProtocolVersion is the latest protocol version this package supports.
-	ProtocolVersion uint32 = 70015
+	ProtocolVersion uint32 = 70018
 
 	// MultipleAddressVersion is the protocol version which added multiple
 	// addresses per message (pver >= MultipleAddressVersion).
@@ -129,7 +129,7 @@ type BitcoinNet uint32
 // this package does not provide that functionality since it's generally a
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
-	// MainNet represents the main litecoin network.
+	// MainNet represents the main machinecoin network.
 	MainNet BitcoinNet = 0xdbb6c0fb
 
 	// TestNet represents the regression test network.

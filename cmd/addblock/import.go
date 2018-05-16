@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ltcsuite/ltcd/blockchain"
-	"github.com/ltcsuite/ltcd/blockchain/indexers"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/database"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/macsuite/macd/blockchain"
+	"github.com/macsuite/macd/blockchain/indexers"
+	"github.com/macsuite/macd/chaincfg/chainhash"
+	"github.com/macsuite/macd/database"
+	"github.com/macsuite/macd/wire"
+	"github.com/macsuite/macutil"
 )
 
 var zeroHash = chainhash.Hash{}
@@ -94,7 +94,7 @@ func (bi *blockImporter) readBlock() ([]byte, error) {
 // with any potential errors.
 func (bi *blockImporter) processBlock(serializedBlock []byte) (bool, error) {
 	// Deserialize the block which includes checks for malformed blocks.
-	block, err := ltcutil.NewBlockFromBytes(serializedBlock)
+	block, err := macutil.NewBlockFromBytes(serializedBlock)
 	if err != nil {
 		return false, err
 	}

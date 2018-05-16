@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ltcsuite/ltcd/rpcclient"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/macsuite/macd/rpcclient"
+	"github.com/macsuite/macd/wire"
+	"github.com/macsuite/macutil"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	// for notifications.  See the documentation of the rpcclient
 	// NotificationHandlers type for more details about each handler.
 	ntfnHandlers := rpcclient.NotificationHandlers{
-		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*ltcutil.Tx) {
+		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*macutil.Tx) {
 			log.Printf("Block connected: %v (%d) %v",
 				header.BlockHash(), height, header.Timestamp)
 		},
@@ -31,9 +31,9 @@ func main() {
 		},
 	}
 
-	// Connect to local ltcd RPC server using websockets.
-	ltcdHomeDir := ltcutil.AppDataDir("ltcd", false)
-	certs, err := ioutil.ReadFile(filepath.Join(ltcdHomeDir, "rpc.cert"))
+	// Connect to local macd RPC server using websockets.
+	macdHomeDir := macutil.AppDataDir("macd", false)
+	certs, err := ioutil.ReadFile(filepath.Join(macdHomeDir, "rpc.cert"))
 	if err != nil {
 		log.Fatal(err)
 	}
