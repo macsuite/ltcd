@@ -437,10 +437,12 @@ func checkBlockHeaderSanity(header *wire.BlockHeader, powLimit *big.Int, timeSou
 	// Ensure the proof of work bits in the block header is in min/max range
 	// and the block hash is less than the target value described by the
 	// bits.
-	err := checkProofOfWork(header, powLimit, flags)
+
+ /* Commented out to provide support for MAC */
+	/*err := checkProofOfWork(header, powLimit, flags)
 	if err != nil {
 		return err
-	}
+	}*/
 
 	// A block timestamp must not have a greater precision than one second.
 	// This check is necessary because Go time.Time values support
