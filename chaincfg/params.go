@@ -24,7 +24,7 @@ var (
 
 	// mainPowLimit is the highest proof of work value a Machinecoin block can
 	// have for the main network.
-	mainPowLimit, _ = new(big.Int).SetString("0x0fffff000000000000000000000000000000000000000000000000000000", 0)
+	mainPowLimit, _ = new(big.Int).SetString("0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 0)
 
 	// regressionPowLimit is the highest proof of work value a Machinecoin block
 	// can have for the regression test network.  It is the value 2^255 - 1.
@@ -259,6 +259,13 @@ var MainNetParams = Params{
 		{ 53600, newHashFromStr("327ec569aa2439c16542ed9402884f5ce691d08f49168d672f19f817ace7a06b")},
 		{112715, newHashFromStr("4fba0d1f891a35a7e0b7370d13b777e75fd2826423ef777ccca2f63d6acc70c5")},
 		{130938, newHashFromStr("3fc5ccce46b45775ea3cb9f0d10169227bbd019518ebb90e5d6b8a770bf85d1d")},
+  {148401, newHashFromStr("0c6b00515da19b9a95571e8cc61447442f6ade0f2e10e3b9ee6df133a76a809f")},
+  {305275, newHashFromStr("4222db35707d9af172ea5c23582338874d1f2956b1850f857c50a3e6f2c6f313")},
+  {329528, newHashFromStr("6fc60fe0c0133dfbb7fd7fae48e689c344e513a109cb4724913f768070f02a11")},
+  {410476, newHashFromStr("8da1c7f79018fac8acac69a57b2f8b5d2743af67976a4525fdedc8c85a3a1418")},
+  {467593, newHashFromStr("c69870ed876b17ebcf582ca8cd6362de13ebd83c98556d6518abfa8b4d71a975")},
+  {506003, newHashFromStr("6ea758bfa652aa7b6ac492d6452deac5cc9e3eac154f49fd1032afd6c0a7520d")},
+  {509513, newHashFromStr("28e590f96c1c02da1ffb58cba0b01eeaddf1dc572e0eee498339469f8a33b4bf")},
 	},
 
 	// Consensus rule change deployments.
@@ -305,7 +312,7 @@ var MainNetParams = Params{
 
 	// BIP44 coin type used in the hierarchical deterministic path for
 	// address generation.
-	HDCoinType: 3,
+	HDCoinType: 989,
 }
 
 // RegressionNetParams defines the network parameters for the regression test

@@ -51,6 +51,18 @@ const (
 	// FeeFilterVersion is the protocol version which added a new
 	// feefilter message.
 	FeeFilterVersion uint32 = 70013
+
+	// DiffUpdateVersion is the protocol version which added a new
+	// in-block difficulty retargetting system.
+	DiffUpdateVersion uint32 = 70016
+
+	// MasternodeVersion is the protocol version which implemented
+	// the Masternode system.
+	MasternodeVersion uint32 = 70017
+
+	// PrevHardForkVersion is the protocol version which was used
+	// to prevent a hardfork created by 0.16.
+	PrevHardForkVersion uint32 = 70017
 )
 
 // ServiceFlag identifies services supported by a bitcoin peer.
