@@ -2,7 +2,7 @@ package: github.com/macsuite/macd
 import:
 - package: github.com/btcsuite/btclog
 - package: github.com/macsuite/macutil
-  version: a88d7dfb1c02af5dffe005ad21f40c42d9fd5ad0
+  version: 3aff8ced7cdbc09d26b6be3603c83ad09da521a2
   subpackages:
   - bloom
   - hdkeychain
