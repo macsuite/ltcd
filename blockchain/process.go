@@ -207,12 +207,12 @@ func (b *BlockChain) ProcessBlock(block *macutil.Block, flags BehaviorFlags) (bo
 			requiredTarget := CompactToBig(b.calcEasiestDifficulty(
 				checkpointNode.bits, duration))
 			currentTarget := CompactToBig(blockHeader.Bits)
-			if currentTarget.Cmp(requiredTarget) > 0 {
+			/*if currentTarget.Cmp(requiredTarget) > 0 {
 				str := fmt.Sprintf("block target difficulty of %064x "+
 					"is too low when compared to the previous "+
 					"checkpoint", currentTarget)
 				return false, false, ruleError(ErrDifficultyTooLow, str)
-			}
+			}*/
 		}
 	}
 
