@@ -203,11 +203,11 @@ func (b *BlockChain) ProcessBlock(block *macutil.Block, flags BehaviorFlags) (bo
 			// check ensures the proof of work is at least the minimum
 			// expected based on elapsed time since the last checkpoint and
 			// maximum adjustment allowed by the retarget rules.
-			duration := blockHeader.Timestamp.Sub(checkpointTime)
+			/*duration := blockHeader.Timestamp.Sub(checkpointTime)
 			requiredTarget := CompactToBig(b.calcEasiestDifficulty(
 				checkpointNode.bits, duration))
 			currentTarget := CompactToBig(blockHeader.Bits)
-			/*if currentTarget.Cmp(requiredTarget) > 0 {
+			if currentTarget.Cmp(requiredTarget) > 0 {
 				str := fmt.Sprintf("block target difficulty of %064x "+
 					"is too low when compared to the previous "+
 					"checkpoint", currentTarget)
