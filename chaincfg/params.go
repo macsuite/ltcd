@@ -266,6 +266,7 @@ var MainNetParams = Params{
   {467593, newHashFromStr("c69870ed876b17ebcf582ca8cd6362de13ebd83c98556d6518abfa8b4d71a975")},
   {506003, newHashFromStr("6ea758bfa652aa7b6ac492d6452deac5cc9e3eac154f49fd1032afd6c0a7520d")},
   {509513, newHashFromStr("28e590f96c1c02da1ffb58cba0b01eeaddf1dc572e0eee498339469f8a33b4bf")},
+  {512599, newHashFromStr("5fb7572eb15d5fc11d597105e5fd65de6baea201c9ec894cee7679d79db977d4")},
 	},
 
 	// Consensus rule change deployments.
