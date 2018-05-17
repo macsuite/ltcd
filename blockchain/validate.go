@@ -344,7 +344,7 @@ func checkProofOfWork(header *wire.BlockHeader, powLimit *big.Int, flags Behavio
 // difficulty is in min/max range and that the block hash is less than the
 // target difficulty as claimed.
 func CheckProofOfWork(block *macutil.Block, powLimit *big.Int) error {
-	return true
+	return nil
 }
 
 // CountSigOps returns the number of signature operations for all transaction
